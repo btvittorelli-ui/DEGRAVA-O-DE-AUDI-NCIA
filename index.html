@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assistente de Degravação de Audiências</title>
+  <link rel="stylesheet" href="index.css">
+  <script type="importmap">
+    {
+      "imports": {
+        "@google/genai": "https://esm.sh/@google/genai@^0.12.0"
+      }
+    }
+  </script>
+</head>
+<body>
+  <div id="app">
+    <header>
+      <h1>Assistente de Degravação de Audiências</h1>
+    </header>
+    <main>
+      <div class="container">
+        <div class="upload-section">
+          <h2>Passo 1: Enviar Arquivos</h2>
+          <div id="drop-zone" class="drop-zone">
+            <p>Arraste e solte o PDF da ata e os vídeos da audiência aqui, ou clique para selecionar.</p>
+            <input type="file" id="file-input" multiple hidden>
+          </div>
+          <div id="file-list" class="file-list"></div>
+        </div>
+        
+        <div class="info-section">
+          <h2>Passo 2: Informações Adicionais</h2>
+          <textarea id="additional-info" placeholder="Insira aqui instruções especiais ou contexto adicional a ser considerado durante a transcrição."></textarea>
+        </div>
+
+        <div class="action-section">
+          <button id="start-btn" disabled>Iniciar Degravação</button>
+          <div id="progress-container" class="progress-container" style="display: none;">
+            <div id="progress-bar" class="progress-bar"></div>
+            <span id="progress-label"></span>
+          </div>
+        </div>
+
+        <div class="output-section">
+          <h2>Resultado da Degravação</h2>
+          <div class="output-actions">
+            <button id="copy-btn">Copiar Texto</button>
+            <button id="anonymize-btn">Anonimizar</button>
+            <button id="clear-btn">Limpar Tudo</button>
+          </div>
+          <textarea id="output-text" placeholder="A transcrição aparecerá aqui..." readonly></textarea>
+        </div>
+        
+        <div class="correction-section">
+            <h2>Correções</h2>
+            <input type="text" id="correction-input" placeholder="Ex: Mude 'Pessoa não identificada 1' para 'Dr. João Mendes'">
+            <button id="correct-btn">Corrigir</button>
+        </div>
+
+      </div>
+    </main>
+  </div>
+  <script type="module" src="index.tsx"></script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+{
+  "name": "Assistente de Degravação de Audiências",
+  "description": "Uma ferramenta para transcrever audiências judiciais a partir de atas em PDF e arquivos de vídeo.",
+  "requestFramePermissions": []
+}
